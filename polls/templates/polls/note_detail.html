@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Note {{ note.id }}</title>
+</head>
+<body>
+    <p><a href="/">Back</a></p>
+    <h1>Note #{{ note.id }}</h1>
+    <p>Owner: {{ note.owner.username }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <p><input type="text" name="title" value="{{ note.title }}"></p>
+        <p><textarea name="body">{{ note.body }}</textarea></p>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
