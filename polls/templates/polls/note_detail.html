@@ -9,6 +9,11 @@
     <h1>Note #{{ note.id }}</h1>
     <p>Owner: {{ note.owner.username }}</p>
 
+    <!-- Flaw: the note body is rendered with |safe, so HTML or JavaScript in the note runs in the browser. -->
+    <!-- Fix: remove |safe so Django escapes the text automatically. -->
+    <h2>Preview</h2>
+    <div>{{ note.body|safe }}</div>
+
     <form method="post">
         {% csrf_token %}
         <p><input type="text" name="title" value="{{ note.title }}"></p>
