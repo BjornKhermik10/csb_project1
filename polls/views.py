@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .models import Note
@@ -19,11 +20,17 @@ def index(request):
 
 
 @login_required
+@csrf_exempt
 def note_detail(request, note_id):
     note = get_object_or_404(Note, pk=note_id)
 
-    # Fix:
+    # Fix for broken access control:
+    # @login_required
+    # def note_detail(request, note_id):
     # note = get_object_or_404(Note, pk=note_id, owner=request.user)
+
+    # Fix for CSRF:
+    # remove @csrf_exempt from this view
 
     if request.method == 'POST':
         note.title = request.POST.get('title', note.title)
