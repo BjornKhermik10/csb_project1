@@ -2,9 +2,9 @@
 
 Cyber Security Base 2025/2026, Project 1.
 
-## What this is
+## note app
 
-A small Django notes app with five intentional security flaws and commented fixes. The project is meant for the course report and screenshots, not for production use.
+A small notes app with five intentional security flaws and commented fixes. 
 
 ## Run the project
 
@@ -33,11 +33,6 @@ Open http://127.0.0.1:8000/
 1. Broken access control
 2. CSRF
 3. Stored XSS
-4. Security misconfiguration (`DEBUG = True`)
+4. Security misconfiguration
 5. Identification and authentication failures
 
-## Report notes
-
-- Each flaw has a commented fix in the code.
-- Screenshots should go in the `screenshots` folder.
-- The report should link directly to the relevant source lines in GitHub.
