@@ -1,8 +1,6 @@
-# csb_project1
+# CyberSecurity Project 1
 
-Cyber Security Base 2025/2026, Project 1.
-
-## note app
+## Note's App
 
 A small notes app with five intentional security flaws and commented fixes. 
 
