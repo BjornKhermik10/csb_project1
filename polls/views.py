@@ -1,8 +1,22 @@
+from django.contrib.auth import login
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .models import Note
+
+
+def login_view(request):
+    form = AuthenticationForm(request, data=request.POST or None)
+
+    if request.method == 'POST' and form.is_valid():
+        # Flaw: the login form has no lockout or rate limiting, so an attacker can keep guessing passwords.
+        # Fix: add a failed-attempt counter and block or slow repeated bad logins.
+        login(request, form.get_user())
+        return redirect('index')
+
+    return render(request, 'registration/login.html', {'form': form})
 
 
 @login_required
@@ -35,6 +49,7 @@ def note_detail(request, note_id):
     if request.method == 'POST':
         note.title = request.POST.get('title', note.title)
         note.body = request.POST.get('body', note.body)
+
         note.save()
         return redirect('note_detail', note_id=note.id)
 
