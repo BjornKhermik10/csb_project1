@@ -30,7 +30,7 @@ def note_detail(request, note_id):
     # note = get_object_or_404(Note, pk=note_id, owner=request.user)
 
     # Fix for CSRF:
-    # remove @csrf_exempt from this view
+    # remove @csrf_exempt from this view.
 
     if request.method == 'POST':
         note.title = request.POST.get('title', note.title)
