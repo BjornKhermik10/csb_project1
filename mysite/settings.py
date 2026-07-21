@@ -19,6 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
+# Below are two security misconfiguration flaws
+
 # Flaw: the secret key is hardcoded in the source file.
 # Fix: load it from an environment variable instead of storing it here.
 SECRET_KEY = 'django-insecure-lol-56c$qx24manwv@kuwc7#t!x2v+cff8*5nnu*xxbi@b^d0mq*-f'
