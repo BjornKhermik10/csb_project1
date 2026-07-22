@@ -11,8 +11,8 @@ def login_view(request):
     form = AuthenticationForm(request, data=request.POST or None)
 
     if request.method == 'POST' and form.is_valid():
-        # Flaw: the login form has no lockout or rate limiting, so an attacker can keep guessing passwords.
-        # Fix: add a failed-attempt counter and block or slow repeated bad logins.
+        # Flaw: the login form has no lockout or rate limiting so an attacker can keep guessing passwords for as long as they want.
+        # Fix: add a failed attempt counter and block/slow repeated bad logins.
         login(request, form.get_user())
         return redirect('index')
 
