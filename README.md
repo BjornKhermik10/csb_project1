@@ -1,4 +1,4 @@
-"""# A project with five vulnerabilities that are mentioned in the OWASP 2021 list and “csrf”.
+# A project with five vulnerabilities that are mentioned in the OWASP 2021 list and “csrf”.
 
 Link to OWASP 2021: https://owasp.org/Top10/2021/
 Repository link: https://github.com/BjornKhermik10/csb_project1/tree/main
@@ -73,4 +73,4 @@ Links to the flaw in the project:
 - https://github.com/BjornKhermik10/csb_project1/blob/main/polls/views.py#L14
 
 Identification and authentication failures occur when the authentication features are improperly or sloppily implemented. This kind of security vulnerability can be very costly allowing attackers to compromise user credential and sensitive information. In my app this vulnerability is present because of the lack of rate limiting, missing CAPTCHA protection and lack of account lockout controls. This allows for several different types of malicious attack, such as automated brute-force or credential stuffing attacks. They could literally try passwords an unlimited amount of times until they guess it, fully compromising a user's account. This flaw can be fixed by implementing failed attempt counters and rate limiting. This flaw is not as easy to avoid as the previous flaws as it is necessary to know how to implement the necessary security layers. Probably present in a lot of vibecoded apps, to some degree.
-"""
+
